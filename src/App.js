@@ -1,9 +1,14 @@
 import React from 'react'
-import Calculator from './Calculator'
+// import Calculator from './Calculator'
+import List from './List'
+
 
 class App extends React.Component {
     render() {
-        return <Calculator />
+        return (
+        // <Calculator />
+        <List />
+        )
     } 
 }
 
