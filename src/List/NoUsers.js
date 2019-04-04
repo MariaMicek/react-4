@@ -3,7 +3,7 @@ import React from 'react'
 const NoUsers = () => {
     return (
         <div>
-            NoUsers
+            No Users
         </div>
     )
 }

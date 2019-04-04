@@ -3,7 +3,7 @@ import React from 'react'
 const NotLoaded = () => {
     return (
         <div>
-            NotLoaded
+            Not Loaded
         </div>
     )
 }

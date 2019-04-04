@@ -1,5 +1,5 @@
 import React from 'react'
-import ResultsItem from './RsultsItem'
+import ResultsItem from './ResultsItem'
 
 const Results = (props) => {
     return (

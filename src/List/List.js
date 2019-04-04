@@ -6,46 +6,28 @@ import NoUsers from './NoUsers'
 import Results from './Results'
 
 
-class List extends React.Component {
-    state = {
-        users: null,
-        isError: false,
-        isLoading: false,
-    }
-
-    componentDidMount() {
-        this.setState({ isLoading: true })
-
-        fetch('https://randomuser.me/api/?results=10')
-            .then(response => response.json())
-            .then(data => this.setState({ users: data.results }))
-            .catch(() => this.setState({ isError: true }))
-            .finally(() => this.setState({ isLoading: false }))
-    }
-
-    render() {
-        return (
-            <div>
-                {
-                    this.state.isError ?
-                        <Error />
+const List = (props) => {
+    return (
+        <div>
+            {
+                props.isError ?
+                    <Error />
+                    :
+                    props.isLoading ?
+                        <Loading />
                         :
-                        this.state.isLoading ?
-                            <Loading />
+                        !props.users ?
+                            <NotLoaded />
                             :
-                            !this.state.users ?
-                                <NotLoaded />
+                            props.users.length === 0 ?
+                                <NoUsers />
                                 :
-                                this.state.users.length === 0 ?
-                                    <NoUsers />
-                                    :
-                                    <Results 
-                                        results={this.state.users}
-                                    />
-                }
-            </div>
-        )
-    }
+                                <Results
+                                    results={props.users}
+                                />
+            }
+        </div>
+    )
 }
 
 export default List
