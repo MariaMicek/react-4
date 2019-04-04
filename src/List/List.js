@@ -8,7 +8,9 @@ import Results from './Results'
 
 const List = (props) => {
     return (
-        <div>
+        <div
+            style={{ margin: '30px' }}
+        >
             {
                 props.isError ?
                     <Error />
