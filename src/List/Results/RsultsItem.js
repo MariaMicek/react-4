@@ -1,14 +1,30 @@
 import React from 'react'
+import ListItem from '@material-ui/core/ListItem';
+import ListItemText from '@material-ui/core/ListItemText';
+import ListItemAvatar from '@material-ui/core/ListItemAvatar';
+import Avatar from '@material-ui/core/Avatar';
 
-const ResultsItem = (props) => {
+
+const ResultsItem = ({ user }) => {
+
+    const name = user.name.first + ' ' + user.name.last
+    const email = user.email
+    const photo = user.picture.thumbnail
+
     return (
-        <div>
-            {
-                <div>
-                    {props.user.name.first} {props.user.name.last}
-                </div>
-            }
-        </div>
+        <ListItem
+            alignItems={'flex-start'}>
+            <ListItemAvatar>
+                <Avatar
+                    alt={name}
+                    src={photo}
+                />
+            </ListItemAvatar>
+            <ListItemText
+                primary={name}
+                secondary={email}
+            />
+        </ListItem>
     )
 }
 
